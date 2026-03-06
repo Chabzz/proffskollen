@@ -1,0 +1,43 @@
+{
+  "info": {
+    "name": "MVP Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3001/api/health"
+      }
+    },
+    {
+      "name": "Send Signup",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"companyName\": \"Acme Corp\",\n  \"email\": \"hello@acme.com\",\n  \"phone\": \"+1234567890\",\n  \"message\": \"We'd like to sign up.\"\n}"
+        },
+        "url": "http://localhost:3001/api/send-signup"
+      }
+    },
+    {
+      "name": "Send Funnel",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Jane Doe\",\n  \"budget\": \"10k-50k\",\n  \"needs\": \"Full integration\",\n  \"email\": \"jane@acme.com\"\n}"
+        },
+        "url": "http://localhost:3001/api/send-funnel"
+      }
+    }
+  ]
+}

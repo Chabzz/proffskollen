@@ -1,0 +1,17 @@
+{
+  "name": "mvp-backend",
+  "version": "1.0.0",
+  "description": "MVP backend – signup/funnel email relay + Supabase auth",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.0",
+    "helmet": "^7.1.0",
+    "nodemailer": "^6.9.14"
+  }
+}
