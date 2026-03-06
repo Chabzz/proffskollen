@@ -8,9 +8,7 @@ const categories = [
   { icon: Hammer, label: "Bygg & Renovering" },
   { icon: Zap, label: "El" },
   { icon: Droplets, label: "VVS" },
-  { icon: Leaf, label: "Trädgård" },
   { icon: Sparkles, label: "Städ" },
-  { icon: Truck, label: "Flytt" },
 ];
 
 const HeroSection = () => {
@@ -48,27 +46,6 @@ const HeroSection = () => {
           <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto text-balance">
             Beskriv ditt projekt – vi matchar dig med rätt lokala företag på några minuter.
           </p>
-
-          {/* Search bar */}
-          <div className="relative max-w-xl mx-auto mb-6">
-            <div className="flex items-center bg-card rounded-2xl border border-border shadow-card overflow-hidden focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/15 transition-all">
-              <Search
-                size={18}
-                className="ml-4 text-muted-foreground flex-shrink-0"
-                strokeWidth={1.5}
-              />
-              <input
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Exempel: Renovera badrum, bygga altan, måla om huset…"
-                className="flex-1 px-3 py-4 text-sm bg-transparent outline-none text-foreground placeholder:text-muted-foreground"
-              />
-              <button className="m-1.5 px-5 py-2.5 bg-primary text-primary-foreground rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity shadow-primary whitespace-nowrap">
-                Sök
-              </button>
-            </div>
-          </div>
 
           {/* Category pills */}
           <div className="flex flex-wrap justify-center gap-2">

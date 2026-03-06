@@ -16,11 +16,6 @@ const trustItems = [
     title: "Inga dolda avgifter",
     desc: "Fullständig transparens – du vet alltid vad du betalar för.",
   },
-  {
-    icon: Clock,
-    title: "Snabb matchning",
-    desc: "Få ditt första erbjudande inom 24 timmar – garanterat.",
-  },
 ];
 
 const TrustSection = () => {
