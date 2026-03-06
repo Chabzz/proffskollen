@@ -22,12 +22,12 @@ const Navbar = () => {
             <Link to="/for-foretag" className="hover:text-foreground transition-colors">För företag</Link>
           </nav>
           <div className="flex items-center gap-3">
-            <button
-              onClick={() => setAuthMode("login")}
+            <Link
+              to="/login"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden sm:block"
             >
               Logga in
-            </button>
+            </Link>
             <Link
               to="/for-foretag"
               className="text-sm bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:opacity-90 transition-opacity font-medium shadow-primary"
