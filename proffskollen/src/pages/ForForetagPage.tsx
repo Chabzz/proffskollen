@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CheckCircle2, Shield, Zap, Users, TrendingUp, Star, ArrowRight } from "lucide-react";
+import { submitSignup } from "@/lib/submitSignup";
 
 const benefits = [
   {
@@ -80,11 +81,24 @@ const ForForetagPage = () => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!isValid) return;
+const [error, setError] = useState<string | null>(null);
+const [loading, setLoading] = useState(false);
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (!isValid) return;
+  setLoading(true);
+  setError(null);
+  
+  const result = await submitSignup(form);
+  
+  if (result.success) {
     setSubmitted(true);
-  };
+  } else {
+    setError(result.error || "Något gick fel. Försök igen.");
+  }
+  setLoading(false);
+};
 
   return (
     <div className="min-h-screen bg-background">
