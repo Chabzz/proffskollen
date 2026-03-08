@@ -89,9 +89,9 @@ const handleSubmit = async (e: React.FormEvent) => {
   if (!isValid) return;
   setLoading(true);
   setError(null);
-  
+
   const result = await submitSignup(form);
-  
+
   if (result.success) {
     setSubmitted(true);
   } else {
@@ -224,7 +224,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
                 <button
                   type="submit"
-                  disabled={!isValid}
+                  disabled={!isValid || loading}
                   className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm shadow-primary hover:opacity-90 transition-opacity disabled:opacity-40 mt-2 flex items-center justify-center gap-2"
                 >
                   Skicka ansökan <ArrowRight size={15} />
