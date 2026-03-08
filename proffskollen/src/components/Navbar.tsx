@@ -14,7 +14,7 @@ const Navbar = () => {
               <div className="w-7 h-7 rounded-lg bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-xs">P</span>
               </div>
-              <span className="font-semibold text-foreground tracking-tight">Placeholder</span>
+              <span className="font-semibold text-foreground tracking-tight">Proffskollen</span>
             </Link>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
