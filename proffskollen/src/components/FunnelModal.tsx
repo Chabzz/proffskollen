@@ -39,26 +39,18 @@ const categoryConfigs: Record<string, CategoryConfig> = {
       Renovering: [
         { title: "Vad ska renoveras?", options: ["Badrum", "Kök", "Hela bostaden", "Annat rum"] },
         { title: "Vilken typ av bostad?", options: ["Lägenhet", "Villa", "Radhus", "Lokal/Kontor"] },
-        { title: "Vad ingår i renoveringen?", options: ["Rivning & nytt", "Ytskikt (golv/väggar)", "Både stomme & ytskikt", "Vet ej ännu"] },
-        { title: "Ungefärlig budget?", options: ["< 50 000 kr", "50 000–150 000 kr", "150 000–500 000 kr", "500 000+ kr"] },
       ],
       Nybyggnation: [
         { title: "Vad ska byggas?", options: ["Hus/Villa", "Garage/Carport", "Attefallshus/Komplementbyggnad", "Kommersiell lokal"] },
-        { title: "Ungefärlig yta?", options: ["< 30 kvm", "30–80 kvm", "80–150 kvm", "150+ kvm"] },
         { title: "Har du bygglov?", options: ["Ja, beviljat", "Nej, behöver hjälp", "Ansökan skickad", "Ej klart om det behövs"] },
-        { title: "Har du ritningar?", options: ["Ja, färdiga", "Nej, behöver arkitekt", "Delvis klara", "Vet ej"] },
       ],
       Tillbyggnad: [
         { title: "Vad ska byggas till?", options: ["Extra rum", "Balkong/Altan/Trädäck", "Vindsinredning", "Uterum/Inglasning"] },
         { title: "Vilken typ av bostad?", options: ["Villa", "Radhus", "Fritidshus", "Annat"] },
-        { title: "Har du bygglov?", options: ["Ja", "Nej, behöver hjälp", "Räknas som friggebod/attefall", "Vet ej"] },
-        { title: "Ungefärlig budget?", options: ["< 100 000 kr", "100 000–300 000 kr", "300 000–600 000 kr", "600 000+ kr"] },
       ],
       Reparation: [
         { title: "Vad behöver repareras?", options: ["Tak/Fasad", "Golv/Väggar", "Fukt-/vattenskada", "Fönster/Dörrar"] },
-        { title: "Vilken typ av bostad?", options: ["Lägenhet", "Villa", "Radhus", "Lokal/Kontor"] },
         { title: "Hur akut är det?", options: ["Akut – inom 24h", "Inom en vecka", "Ingen brådska", "Bara offert"] },
-        { title: "Är det ett försäkringsärende?", options: ["Ja", "Nej", "Pågående utredning", "Vet ej"] },
       ],
     },
   },
@@ -73,22 +65,17 @@ const categoryConfigs: Record<string, CategoryConfig> = {
       Rörinstallation: [
         { title: "Vad gäller installationen?", options: ["Nydraging av vatten/avlopp", "Flytta befintliga rör", "Ansluta disk-/tvättmaskin", "Annat"] },
         { title: "I vilket rum?", options: ["Kök", "Badrum", "Tvättstuga", "Annat/Flera rum"] },
-        { title: "Vilken typ av bostad?", options: ["Lägenhet", "Villa", "Radhus", "Lokal/Kontor"] },
       ],
       Värmesystem: [
         { title: "Vad gäller värmesystemet?", options: ["Ny värmepump (luft/berg)", "Byte av radiator/element", "Golvvärme", "Service/Felsökning"] },
         { title: "Nuvarande uppvärmning?", options: ["Fjärrvärme", "Direktverkande el", "Olja/Gas", "Vet ej"] },
-        { title: "Vilken typ av bostad?", options: ["Lägenhet", "Villa", "Radhus", "Lokal/Kontor"] },
       ],
       Badrumsrenovering: [
         { title: "Vad ska göras i badrummet?", options: ["Helrenovering", "Byte av kakel/klinker", "Ny dusch/badkar", "Byte av handfat/toalett"] },
         { title: "Antal badrum?", options: ["1 badrum", "2 badrum", "3+ badrum", "Separat toalett också"] },
-        { title: "Behövs tätskikt/våtrum?", options: ["Ja, helt nytt", "Delvis – komplettering", "Nej, bara ytskikt", "Vet ej"] },
-        { title: "Ungefärlig budget?", options: ["< 80 000 kr", "80 000–150 000 kr", "150 000–300 000 kr", "300 000+ kr"] },
       ],
       "Akut läcka/reparation": [
         { title: "Vad har hänt?", options: ["Vattenläcka", "Stopp i avlopp", "Trasig kran/blandare", "Annat VVS-problem"] },
-        { title: "Var sitter problemet?", options: ["Kök", "Badrum", "Källare/Teknikrum", "Vet ej"] },
         { title: "Hur akut är det?", options: ["Pågående läcka – nu", "Inom 24h", "Inom ett par dagar", "Bara offert"] },
       ],
     },
@@ -104,21 +91,17 @@ const categoryConfigs: Record<string, CategoryConfig> = {
       Nyinstallation: [
         { title: "Vad ska installeras?", options: ["Belysning (inne/ute)", "Eluttag/Strömbrytare", "Spotlights/Infälld belysning", "Anslutning av vitvaror"] },
         { title: "I vilken typ av utrymme?", options: ["Inne i bostaden", "Utomhus/Trädgård", "Garage/Förråd", "Lokal/Kontor"] },
-        { title: "Finns det befintlig dragning?", options: ["Ja, bygga vidare", "Nej, helt ny dragning", "Delvis", "Vet ej"] },
       ],
       "Felsökning/Reparation": [
         { title: "Vad är problemet?", options: ["Strömmen går hela tiden", "Uttag/brytare fungerar ej", "Blinkande/flimrande belysning", "Annat/Vet ej"] },
-        { title: "Hur länge har problemet funnits?", options: ["Nyligen uppstått", "Några dagar", "Pågående länge", "Kommer och går"] },
         { title: "Hur akut är det?", options: ["Akut – inom 24h", "Inom en vecka", "Ingen brådska", "Bara offert"] },
       ],
       "Elcentral/Säkring": [
         { title: "Vad behöver göras?", options: ["Uppgradering av elcentral", "Byte av säkringar/automater", "Installation av jordfelsbrytare", "Elbesiktning"] },
-        { title: "Ålder på nuvarande elcentral?", options: ["< 10 år", "10–30 år", "30+ år", "Vet ej"] },
         { title: "Vilken typ av fastighet?", options: ["Lägenhet", "Villa", "Radhus", "Lokal/Kontor"] },
       ],
       "Laddbox för elbil": [
         { title: "Var ska laddboxen sitta?", options: ["Garagevägg", "Carport", "Utomhus vid uppfart", "Parkeringsplats (BRF/hyreshus)"] },
-        { title: "Äger du fastigheten?", options: ["Ja, villa/radhus", "Bostadsrätt (behöver tillstånd)", "Hyresrätt", "Företag/BRF"] },
         { title: "Har du 3-fas el?", options: ["Ja", "Nej", "Vet ej", "Behöver utredning"] },
       ],
     },
@@ -134,22 +117,18 @@ const categoryConfigs: Record<string, CategoryConfig> = {
       "Regelbunden hemstäd": [
         { title: "Hur stor är bostaden?", options: ["1–2 rok", "3–4 rok", "5+ rok", "Villa"] },
         { title: "Hur ofta behöver du hjälp?", options: ["Varje vecka", "Varannan vecka", "En gång i månaden", "Annat"] },
-        { title: "Vad ska ingå?", options: ["Bas (damm, golv, badrum)", "Bas + kök", "Helstäd inkl. fönster", "Anpassat upplägg"] },
       ],
       Storstädning: [
         { title: "Varför storstädning?", options: ["Säsongsrengöring", "Efter renovering/bygge", "Före inflyttning", "Annat"] },
         { title: "Hur stor är ytan?", options: ["1–2 rok", "3–4 rok", "5+ rok / Villa", "Lokal/Kontor"] },
-        { title: "Behövs fönsterputs?", options: ["Ja, in- & utsida", "Ja, bara insida", "Nej", "Vet ej"] },
       ],
       Flyttstäd: [
         { title: "Hur stor är bostaden?", options: ["1–2 rok", "3–4 rok", "5+ rok", "Villa"] },
-        { title: "Ingår garanti mot besiktning?", options: ["Ja, det är viktigt", "Nej, behövs inte", "Vet ej vad det innebär", "Vill veta mer"] },
         { title: "När ska det vara klart?", options: ["Inom 3 dagar", "Inom en vecka", "Inom 2 veckor", "Flexibelt"] },
       ],
       Kontorsstäd: [
         { title: "Hur stort är kontoret?", options: ["< 100 kvm", "100–300 kvm", "300–500 kvm", "500+ kvm"] },
         { title: "Hur ofta behöver ni hjälp?", options: ["Dagligen", "2–3 ggr/vecka", "Varje vecka", "Engångstillfälle"] },
-        { title: "Vad ska ingå?", options: ["Grundstäd (golv, ytor, toalett)", "Grundstäd + kök/pentry", "Helstäd inkl. fönster", "Anpassat upplägg"] },
       ],
     },
   },
@@ -191,9 +170,9 @@ const FunnelModal = ({ category, onClose }: FunnelModalProps) => {
     : [];
   const allSteps = [config.firstStep, ...subFlowSteps];
 
-  const totalSteps = allSteps.length + 1; // allSteps + contact step
+  const totalQuestionSteps = allSteps.length; // only the question steps (not contact)
   const isContactStep = currentStep === allSteps.length;
-  const progress = ((currentStep + 1) / totalSteps) * 100;
+  const progress = ((currentStep + 1) / (totalQuestionSteps + 1)) * 100;
   const currentSelection = selections[currentStep];
   const step = allSteps[currentStep];
 
@@ -315,7 +294,7 @@ const FunnelModal = ({ category, onClose }: FunnelModalProps) => {
             /* ── Option selection steps ── */
             <>
               <p className="text-xs text-muted-foreground mb-1">
-                Steg {currentStep + 1} av {totalSteps}
+                Steg {currentStep + 1} av {totalQuestionSteps}
               </p>
               <h2 className="text-xl font-semibold text-foreground mb-5">
                 {step.title}
@@ -365,7 +344,7 @@ const FunnelModal = ({ category, onClose }: FunnelModalProps) => {
             /* ── Contact + description step ── */
             <>
               <p className="text-xs text-muted-foreground mb-1">
-                Steg {totalSteps} av {totalSteps} — Kontaktuppgifter
+                Sista steget — Kontaktuppgifter
               </p>
               <h2 className="text-xl font-semibold text-foreground mb-4">
                 Vem ska vi kontakta?
