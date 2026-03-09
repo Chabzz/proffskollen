@@ -52,7 +52,6 @@ const Footer = () => {
           <p className="text-xs opacity-40">
             © {new Date().getFullYear()} Proffskollen AB. Alla rättigheter förbehålls.
           </p>
-          <p className="text-xs opacity-40">Tillverkat med ♥ i Sverige</p>
         </div>
       </div>
     </footer>
