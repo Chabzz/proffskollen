@@ -170,7 +170,12 @@ const FunnelModal = ({ category, onClose }: FunnelModalProps) => {
     : [];
   const allSteps = [config.firstStep, ...subFlowSteps];
 
-  const totalQuestionSteps = allSteps.length; // only the question steps (not contact)
+  // Before a first selection we don't know the sub-flow yet, so estimate
+  // using the first available sub-flow length (all are 2, so total = 3).
+  const estimatedSubFlowLen = firstSelection
+    ? subFlowSteps.length
+    : (Object.values(config.subFlows)[0]?.length ?? 0);
+  const totalQuestionSteps = 1 + estimatedSubFlowLen; // firstStep + sub-flow steps
   const isContactStep = currentStep === allSteps.length;
   const progress = ((currentStep + 1) / (totalQuestionSteps + 1)) * 100;
   const currentSelection = selections[currentStep];
