@@ -41,7 +41,7 @@ const categoryConfigs: Record<string, CategoryConfig> = {
         { title: "Vilken typ av bostad?", options: ["Lägenhet", "Villa", "Radhus", "Lokal/Kontor"] },
       ],
       Nybyggnation: [
-        { title: "Vad ska byggas?", options: ["Hus/Villa", "Garage/Carport", "Attefallshus/Komplementbyggnad", "Kommersiell lokal"] },
+        { title: "Vad ska byggas?", options: ["Hus/Villa", "Garage/Carport", "Attefallshus", "Kommersiell lokal"] },
         { title: "Har du bygglov?", options: ["Ja, beviljat", "Nej, behöver hjälp", "Ansökan skickad", "Ej klart om det behövs"] },
       ],
       Tillbyggnad: [
