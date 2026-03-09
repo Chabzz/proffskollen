@@ -29,7 +29,7 @@ const AuthModal = ({ mode, onClose, onSwitchMode }: AuthModalProps) => {
             <div className="flex items-center gap-2 mb-0.5">
               <div className="w-2 h-2 rounded-full bg-primary" />
               <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-                Placeholder
+                Proffskollen
               </span>
             </div>
             <h2 className="text-xl font-semibold text-foreground mt-1">

@@ -42,7 +42,7 @@ const testimonials = [
   {
     name: "Sara Johansson",
     company: "Johansson El AB",
-    text: "Processen för att komma igång var enkel och supporten var utmärkt. Rekommenderar verkligen Placeholder.",
+    text: "Processen för att komma igång var enkel och supporten var utmärkt. Rekommenderar verkligen Proffskollen.",
     stars: 5,
   },
 ];
@@ -112,7 +112,7 @@ const handleSubmit = async (e: React.FormEvent) => {
           </span>
           <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 leading-tight">
             Anslut ditt företag till{" "}
-            <span className="text-primary">Placeholder</span>
+            <span className="text-primary">Proffskollen</span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             Vi kvalitetssäkrar varje företag manuellt. Fyll i formuläret nedan
@@ -244,7 +244,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-3">
-              Varför ansluta till Placeholder?
+              Varför ansluta till Proffskollen?
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Tusentals kunder söker aktivt efter pålitliga företag varje vecka.

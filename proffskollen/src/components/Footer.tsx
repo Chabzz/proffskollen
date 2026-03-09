@@ -9,7 +9,7 @@ const Footer = () => {
               <div className="w-7 h-7 rounded-lg bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-xs">P</span>
               </div>
-              <span className="font-semibold text-background tracking-tight">Placeholder</span>
+              <span className="font-semibold text-background tracking-tight">Proffskollen</span>
             </div>
             <p className="text-sm leading-relaxed max-w-xs opacity-70">
               Vi gör det enklare att hitta rätt företag för rätt jobb.
@@ -50,7 +50,7 @@ const Footer = () => {
 
         <div className="border-t border-background/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs opacity-40">
-            © {new Date().getFullYear()} Placeholder AB. Alla rättigheter förbehålls.
+            © {new Date().getFullYear()} Proffskollen AB. Alla rättigheter förbehålls.
           </p>
           <p className="text-xs opacity-40">Tillverkat med ♥ i Sverige</p>
         </div>
