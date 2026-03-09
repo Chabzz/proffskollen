@@ -19,81 +19,134 @@ interface ContactForm {
   description: string;
 }
 
-// ── Category-specific steps (max 3 before contact) ───────
+// ── Branching category config ─────────────────────────────
+// Each category has a firstStep (sub-category picker) and
+// tailored follow-up steps (subFlows) per option chosen.
 
-const categorySteps: Record<string, Step[]> = {
-  "Bygg & Renovering": [
-    {
+interface CategoryConfig {
+  firstStep: Step;
+  subFlows: Record<string, Step[]>;
+}
+
+const categoryConfigs: Record<string, CategoryConfig> = {
+  "Bygg & Renovering": {
+    firstStep: {
       title: "Vad gäller projektet?",
       options: ["Renovering", "Nybyggnation", "Tillbyggnad", "Reparation"],
     },
-    {
-      title: "Hur stort är projektet?",
-      options: ["< 20 kvm", "20–50 kvm", "50–100 kvm", "100+ kvm"],
+    subFlows: {
+      Renovering: [
+        { title: "Vad ska renoveras?", options: ["Badrum", "Kök", "Hela bostaden", "Annat rum"] },
+        { title: "Hur stort är projektet?", options: ["< 20 kvm", "20–50 kvm", "50–100 kvm", "100+ kvm"] },
+        { title: "Vilken typ av bostad?", options: ["Lägenhet", "Villa", "Radhus", "Lokal/Kontor"] },
+      ],
+      Nybyggnation: [
+        { title: "Vad ska byggas?", options: ["Hus/Villa", "Garage/Carport", "Attefallshus", "Kommersiell lokal"] },
+        { title: "Hur stort är projektet?", options: ["< 50 kvm", "50–100 kvm", "100–200 kvm", "200+ kvm"] },
+        { title: "Har du bygglov?", options: ["Ja", "Nej, behöver hjälp", "Ansökan skickad", "Vet ej"] },
+      ],
+      Tillbyggnad: [
+        { title: "Vad ska byggas till?", options: ["Extra rum", "Balkong/Altan", "Våning/Vind", "Uterum/Inglasning"] },
+        { title: "Hur stort är projektet?", options: ["< 15 kvm", "15–30 kvm", "30–50 kvm", "50+ kvm"] },
+        { title: "Vilken typ av bostad?", options: ["Villa", "Radhus", "Lägenhet", "Annat"] },
+      ],
+      Reparation: [
+        { title: "Vad behöver repareras?", options: ["Tak/Fasad", "Golv/Väggar", "Fuktskada", "Annat"] },
+        { title: "Hur akut är det?", options: ["Akut – inom 24h", "Inom en vecka", "Ingen brådska", "Bara offert"] },
+        { title: "Vilken typ av bostad?", options: ["Lägenhet", "Villa", "Radhus", "Lokal/Kontor"] },
+      ],
     },
-    {
-      title: "Vilken typ av bostad?",
-      options: ["Lägenhet", "Villa", "Radhus", "Lokal/Kontor"],
-    },
-  ],
-  Städ: [
-    {
-      title: "Vilken typ av städning?",
-      options: ["Regelbunden städning", "Storstädning", "Flyttstäd", "Kontorsstäd"],
-    },
-    {
-      title: "Hur stort är utrymmet?",
-      options: ["1–2 rum", "3–4 rum", "5+ rum", "Lokal/Kontor"],
-    },
-    {
-      title: "Hur ofta behöver du hjälp?",
-      options: ["Engångstillfälle", "Varje vecka", "Varannan vecka", "En gång i månaden"],
-    },
-  ],
-  VVS: [
-    {
+  },
+  VVS: {
+    firstStep: {
       title: "Vad behöver du hjälp med?",
       options: ["Rörinstallation", "Värmesystem", "Badrumsrenovering", "Akut läcka/reparation"],
     },
-    {
-      title: "Var sitter problemet?",
-      options: ["Kök", "Badrum", "Källare/Teknikrum", "Vet ej"],
+    subFlows: {
+      Rörinstallation: [
+        { title: "Vad gäller installationen?", options: ["Nydraging av rör", "Flytt av rör", "Koppling av maskin", "Annat"] },
+        { title: "I vilket rum?", options: ["Kök", "Badrum", "Tvättstuga", "Annat"] },
+      ],
+      Värmesystem: [
+        { title: "Vad gäller värmesystemet?", options: ["Installation av värmepump", "Byte av radiator", "Golvvärme", "Service/Felsökning"] },
+        { title: "Vilken typ av bostad?", options: ["Lägenhet", "Villa", "Radhus", "Lokal/Kontor"] },
+      ],
+      Badrumsrenovering: [
+        { title: "Vad ska göras i badrummet?", options: ["Helrenovering", "Byte av kakel/klinker", "Ny dusch/badkar", "Byte av handfat/toalett"] },
+        { title: "Hur stort är badrummet?", options: ["< 5 kvm", "5–10 kvm", "10+ kvm", "Vet ej"] },
+      ],
+      "Akut läcka/reparation": [
+        { title: "Var sitter problemet?", options: ["Kök", "Badrum", "Källare/Teknikrum", "Vet ej"] },
+        { title: "Hur akut är det?", options: ["Pågående läcka – nu", "Inom 24h", "Inom ett par dagar", "Bara offert"] },
+      ],
     },
-    {
-      title: "Hur akut är det?",
-      options: ["Akut – inom 24h", "Inom en vecka", "Ingen brådska", "Bara offert"],
-    },
-  ],
-  El: [
-    {
+  },
+  El: {
+    firstStep: {
       title: "Vad behöver du hjälp med?",
       options: ["Nyinstallation", "Felsökning/Reparation", "Elcentral/Säkring", "Laddbox för elbil"],
     },
-    {
-      title: "Var ska arbetet utföras?",
-      options: ["Inne i bostaden", "Utomhus/Garage", "Lokal/Kontor", "Vet ej"],
+    subFlows: {
+      Nyinstallation: [
+        { title: "Vad ska installeras?", options: ["Belysning", "Eluttag/Strömbrytare", "Vitvaror/Maskin", "Annat"] },
+        { title: "I vilken typ av utrymme?", options: ["Inne i bostaden", "Utomhus/Garage", "Lokal/Kontor", "Annat"] },
+      ],
+      "Felsökning/Reparation": [
+        { title: "Vad är problemet?", options: ["Strömavbrott", "Defekt uttag/brytare", "Blinkande belysning", "Annat/Vet ej"] },
+        { title: "Hur akut är det?", options: ["Akut – inom 24h", "Inom en vecka", "Ingen brådska", "Bara offert"] },
+      ],
+      "Elcentral/Säkring": [
+        { title: "Vad behöver göras?", options: ["Uppgradering av elcentral", "Byte av säkring", "Jordfelsbrytare", "Besiktning"] },
+        { title: "Vilken typ av fastighet?", options: ["Lägenhet", "Villa", "Radhus", "Lokal/Kontor"] },
+      ],
+      "Laddbox för elbil": [
+        { title: "Var ska laddboxen installeras?", options: ["Garagevägg", "Carport", "Utomhus vid parkering", "Annat"] },
+        { title: "Har du 3-fas el?", options: ["Ja", "Nej", "Vet ej", "Behöver utredning"] },
+      ],
     },
-    {
-      title: "Hur akut är det?",
-      options: ["Akut – inom 24h", "Inom en vecka", "Ingen brådska", "Bara offert"],
+  },
+  Städ: {
+    firstStep: {
+      title: "Vilken typ av städning?",
+      options: ["Regelbunden städning", "Storstädning", "Flyttstäd", "Kontorsstäd"],
     },
-  ],
+    subFlows: {
+      "Regelbunden städning": [
+        { title: "Hur stort är utrymmet?", options: ["1–2 rum", "3–4 rum", "5+ rum", "Lokal/Kontor"] },
+        { title: "Hur ofta behöver du hjälp?", options: ["Varje vecka", "Varannan vecka", "En gång i månaden", "Annat"] },
+      ],
+      Storstädning: [
+        { title: "Vad ska storstädas?", options: ["Hela bostaden", "Kök & Badrum", "Specifika rum", "Lokal/Kontor"] },
+        { title: "Hur stort är utrymmet?", options: ["1–2 rum", "3–4 rum", "5+ rum", "Stor lokal"] },
+      ],
+      Flyttstäd: [
+        { title: "Hur stor är bostaden?", options: ["1–2 rum", "3–4 rum", "5+ rum", "Villa"] },
+        { title: "När ska det vara klart?", options: ["Inom 3 dagar", "Inom en vecka", "Inom 2 veckor", "Flexibelt"] },
+      ],
+      Kontorsstäd: [
+        { title: "Hur stort är kontoret?", options: ["< 100 kvm", "100–300 kvm", "300–500 kvm", "500+ kvm"] },
+        { title: "Hur ofta behöver ni hjälp?", options: ["Dagligen", "Varje vecka", "Varannan vecka", "Engångstillfälle"] },
+      ],
+    },
+  },
 };
 
 // Fallback for any other category
-const defaultSteps: Step[] = [
-  {
+const defaultConfig: CategoryConfig = {
+  firstStep: {
     title: "Vad behöver du hjälp med?",
     options: ["Nyinstallation", "Reparation", "Underhåll", "Annat"],
   },
-  {
-    title: "Hur akut är det?",
-    options: ["Akut – inom 24h", "Inom en vecka", "Ingen brådska", "Bara offert"],
+  subFlows: {
+    Nyinstallation: [{ title: "Hur akut är det?", options: ["Akut – inom 24h", "Inom en vecka", "Ingen brådska", "Bara offert"] }],
+    Reparation: [{ title: "Hur akut är det?", options: ["Akut – inom 24h", "Inom en vecka", "Ingen brådska", "Bara offert"] }],
+    Underhåll: [{ title: "Hur akut är det?", options: ["Akut – inom 24h", "Inom en vecka", "Ingen brådska", "Bara offert"] }],
+    Annat: [{ title: "Hur akut är det?", options: ["Akut – inom 24h", "Inom en vecka", "Ingen brådska", "Bara offert"] }],
   },
-];
+};
 
 const FunnelModal = ({ category, onClose }: FunnelModalProps) => {
-  const steps = categorySteps[category] ?? defaultSteps;
+  const config = categoryConfigs[category] ?? defaultConfig;
 
   const [currentStep, setCurrentStep] = useState(0);
   const [selections, setSelections] = useState<Record<number, string>>({});
@@ -107,11 +160,18 @@ const FunnelModal = ({ category, onClose }: FunnelModalProps) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const totalSteps = steps.length + 1; // steps + contact step
-  const isContactStep = currentStep === steps.length;
+  // Build the active step list: firstStep + sub-flow based on first selection
+  const firstSelection = selections[0];
+  const subFlowSteps = firstSelection
+    ? (config.subFlows[firstSelection] ?? [])
+    : [];
+  const allSteps = [config.firstStep, ...subFlowSteps];
+
+  const totalSteps = allSteps.length + 1; // allSteps + contact step
+  const isContactStep = currentStep === allSteps.length;
   const progress = ((currentStep + 1) / totalSteps) * 100;
   const currentSelection = selections[currentStep];
-  const step = steps[currentStep];
+  const step = allSteps[currentStep];
 
   const isContactValid =
     contact.name.trim() &&
@@ -120,11 +180,20 @@ const FunnelModal = ({ category, onClose }: FunnelModalProps) => {
     contact.description.trim();
 
   const handleSelect = (option: string) => {
-    setSelections((prev) => ({ ...prev, [currentStep]: option }));
+    setSelections((prev) => {
+      const updated = { ...prev, [currentStep]: option };
+      // Changing the first step resets all downstream answers
+      if (currentStep === 0 && prev[0] !== option) {
+        Object.keys(prev).forEach((key) => {
+          if (Number(key) > 0) delete updated[Number(key)];
+        });
+      }
+      return updated;
+    });
   };
 
   const handleNext = () => {
-    if (currentStep < steps.length) setCurrentStep((s) => s + 1);
+    if (currentStep < allSteps.length) setCurrentStep((s) => s + 1);
   };
 
   const handleBack = () => {
@@ -145,7 +214,7 @@ const FunnelModal = ({ category, onClose }: FunnelModalProps) => {
     const payload = {
       category,
       ...Object.fromEntries(
-        steps.map((s, i) => [s.title, selections[i] ?? ""])
+        allSteps.map((s, i) => [s.title, selections[i] ?? ""])
       ),
       ...contact,
     };
@@ -280,7 +349,7 @@ const FunnelModal = ({ category, onClose }: FunnelModalProps) => {
 
               {/* Summary of selections */}
               <div className="bg-muted/40 rounded-xl p-3 mb-4 space-y-1">
-                {steps.map((s, i) => (
+                {allSteps.map((s, i) => (
                   <div key={i} className="flex justify-between text-xs">
                     <span className="text-muted-foreground">{s.title}</span>
                     <span className="font-medium text-foreground">{selections[i] ?? "—"}</span>
