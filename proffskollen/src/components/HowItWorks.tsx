@@ -36,12 +36,12 @@ const HowItWorks = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {howSteps.map(({ icon: Icon, step, title, desc }, i) => (
-            <div key={i} className="relative group">
+            <div key={i} className="relative group flex">
               {/* Connector line */}
               {i < howSteps.length - 1 && (
                 <div className="hidden md:block absolute top-8 left-[60%] right-[-40%] h-px bg-gradient-to-r from-primary/30 to-transparent z-0" />
               )}
-              <div className="relative z-10 bg-card border border-border rounded-2xl p-6 shadow-card hover:shadow-lg-custom hover:-translate-y-1 transition-all duration-300">
+              <div className="relative z-10 bg-card border border-border rounded-2xl p-6 shadow-card hover:shadow-lg-custom hover:-translate-y-1 transition-all duration-300 flex flex-col w-full">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center flex-shrink-0">
                     <Icon size={22} className="text-primary" strokeWidth={1.5} />
