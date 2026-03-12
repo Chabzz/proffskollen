@@ -1,10 +1,28 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import HowItWorks from "@/components/HowItWorks";
 import TrustSection from "@/components/TrustSection";
+import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      // Small delay to let the page render first
+      setTimeout(() => {
+        const section = document.getElementById(id);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, [location.hash]);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -12,6 +30,7 @@ const Index = () => {
         <HeroSection />
         <HowItWorks />
         <TrustSection />
+        <Testimonials />
 
         {/* CTA Banner */}
         <section className="py-20 bg-primary">
