@@ -28,7 +28,7 @@ const Footer = () => {
               <div className="w-7 h-7 rounded-lg bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-xs">P</span>
               </div>
-              <span className="font-semibold text-background tracking-tight">Placeholder</span>
+              <span className="font-semibold text-background tracking-tight">Proffskollen</span>
             </Link>
             <p className="text-sm leading-relaxed max-w-xs opacity-70">
               Vi gör det enklare att hitta rätt företag för rätt jobb.
