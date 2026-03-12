@@ -30,7 +30,7 @@ const HowItWorks = () => {
             Processen
           </span>
           <h2 className="text-3xl sm:text-4xl font-semibold text-foreground">
-            Enkelt som tre steg
+            Tre enkla steg 
           </h2>
         </div>
 
