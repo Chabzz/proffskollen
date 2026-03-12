@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import AuthModal from "@/components/AuthModal";
 
+
 const Navbar = () => {
   const [authMode, setAuthMode] = useState<"login" | "signup" | null>(null);
 
@@ -18,7 +19,7 @@ const Navbar = () => {
             </Link>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
-            <a href="#how-it-works" className="hover:text-foreground transition-colors">Hur det fungerar</a>
+            <a href="/#how-it-works" className="hover:text-foreground transition-colors">Hur det fungerar</a>
             <Link to="/for-foretag" className="hover:text-foreground transition-colors">För företag</Link>
           </nav>
           <div className="flex items-center gap-3">

@@ -273,7 +273,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
       </section>
 
-      {/* Social proof */}
+      {/* Social proof 
       <section className="py-20 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-10">
@@ -305,7 +305,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="py-16 px-4 sm:px-6 bg-primary">
