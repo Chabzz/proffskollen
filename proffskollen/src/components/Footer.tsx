@@ -78,9 +78,8 @@ const Footer = () => {
 
         <div className="border-t border-background/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs opacity-40">
-            © {new Date().getFullYear()} Placeholder AB. Alla rättigheter förbehålls.
+            © {new Date().getFullYear()} Proffskollen. Alla rättigheter förbehålls.
           </p>
-          <p className="text-xs opacity-40">Tillverkat med ♥ i Sverige</p>
         </div>
       </div>
     </footer>

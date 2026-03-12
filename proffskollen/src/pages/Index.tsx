@@ -30,7 +30,7 @@ const Index = () => {
         <HeroSection />
         <HowItWorks />
         <TrustSection />
-        <Testimonials />
+        {/*<Testimonials />*/}
 
         {/* CTA Banner */}
         <section className="py-20 bg-primary">
